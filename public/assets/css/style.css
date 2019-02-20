@@ -186,9 +186,7 @@ html .ui-button.ui-state-disabled:active {
   z-index: 9999;
 }
 
-.logo-loader {
-  
-}
+.logo-loader {}
 
 .loader--dot {
   -webkit-animation-name: loader;
@@ -951,13 +949,17 @@ a:focus {
 }
 
 .hero-banner-area .banner-content h1,
+.hero-banner-area .banner-content h2 {
+  font-size: 64px;
+}
+
+.hero-banner-area .banner-content h1,
 .hero-banner-area .banner-content h2,
 .hero-banner-area .banner-content h3,
 .hero-banner-area .banner-content h4,
 .hero-banner-area .banner-content h5,
 .hero-banner-area .banner-content h6 {
   font-weight: 300;
-  font-size: 64px;
   color: #fff;
   line-height: 64px;
   text-transform: capitalize;

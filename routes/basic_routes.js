@@ -5,15 +5,23 @@ router.get('/', (req, res) => {
 });
 
 router.get('/about-us', (req, res) => {
-    
+    res.render('about');
 });
 
 router.get('/team', (req, res) => {
-
+    res.render('speakers');
 });
 
 router.get('/events', (req, res) => {
+    res.render('event-schedule');
+});
 
+router.get('/developer', (req, res) => {
+
+});
+
+router.get('/contact-us', (req, res) => {
+    res.render('contact');
 });
 
 module.exports = router
