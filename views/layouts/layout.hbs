@@ -13,9 +13,14 @@
 
 <body>
     <div class='loader'>
-        <div class="logo-loader"></div>
+        <div class="logo-loader">
+            {{!-- <img src="/assets/favicon.png"> --}}
+        </div>
     </div>
 
+    <noscript>
+        <h1>Your browser is outdated and does not supports Javascript, just like this page.</h1>
+    </noscript>
     <div class="main-container">
         {{> header}}
         {{{body}}}

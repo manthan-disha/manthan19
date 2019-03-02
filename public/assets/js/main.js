@@ -1,7 +1,5 @@
 (function ($) {
     "use strict";
-
-    //when dom is ready
     $(document).ready(function () {
 
         $(".dropdown").hover(function () {
@@ -13,15 +11,13 @@
 
         });
 
-    /*preloader*/
-    $(window).on('load', function () {
-        $('.loader').fadeOut('slow', function () {
-            $(this).remove();
-        })
-    });
-        /*----------------------------
-         wow js active
-        ------------------------------ */
+        /*preloader*/
+        $(window).on('load', function () {
+            $('.loader').fadeOut('slow', function () {
+                $(this).remove();
+            })
+        });
+        
         new WOW().init();
 
 
@@ -214,23 +210,10 @@
             " - £" + $("#slider-range").slider("values", 1));
 
 
-        /*--------------------------
-         counterup js
-        ---------------------------- */
         $('.count').counterUp({
             delay: 50,
             time: 3000
 
-        });
-
-        /*--------------------------
-        scrollUp
-        ---------------------------- */
-        $.scrollUp({
-            scrollText: '',
-            easingType: 'linear',
-            scrollSpeed: 900,
-            animation: 'fade'
         });
 
     });

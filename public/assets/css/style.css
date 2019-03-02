@@ -184,9 +184,17 @@ html .ui-button.ui-state-disabled:active {
   background-color: #4125dd;
   margin: auto;
   z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
 }
 
-.logo-loader {}
+.logo-loader {
+  height: 200px;
+  width: 200px;
+}
 
 .loader--dot {
   -webkit-animation-name: loader;
@@ -1895,6 +1903,7 @@ a:focus {
 }
 
 /*3.6 Our Sponsers Area*/
+
 .our-sponsers-area .section-title p {
   margin: 25px 0 60px;
 }
@@ -2868,6 +2877,10 @@ a:focus {
   font-weight: 600;
   margin-top: 40px;
   text-transform: capitalize;
+}
+
+.speakers-single-area .container div.row::not(:first-child):not(:last-child){
+  padding: 100px 0 !important;
 }
 
 .speakers-single-area .inner-content span {

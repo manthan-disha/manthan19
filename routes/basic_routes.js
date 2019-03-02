@@ -13,7 +13,7 @@ router.get('/team', (req, res) => {
 });
 
 router.get('/events', (req, res) => {
-    res.render('event-schedule');
+    res.render('speakers-single');
 });
 
 router.get('/developer', (req, res) => {
