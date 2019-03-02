@@ -2879,8 +2879,15 @@ a:focus {
   text-transform: capitalize;
 }
 
-.speakers-single-area .container div.row::not(:first-child):not(:last-child){
-  padding: 100px 0 !important;
+.speakers-single-area div.row:not(:first-child):not(:last-child){
+  padding: 50px 0 !important;
+}
+
+.speakers-single-area div.row:last-child{
+  padding-top: 50px !important;
+}
+.speakers-single-area div.row:first-child {
+  padding-bottom: 50px !important;
 }
 
 .speakers-single-area .inner-content span {

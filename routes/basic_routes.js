@@ -1,4 +1,5 @@
-const router = require('express').Router()
+const router = require('express').Router(),
+    events = require('../bin/event-data')
 
 router.get('/', (req, res) => {
     res.render('home-3');
@@ -13,7 +14,9 @@ router.get('/team', (req, res) => {
 });
 
 router.get('/events', (req, res) => {
-    res.render('speakers-single');
+    res.render('speakers-single',{
+        events : events
+    });
 });
 
 router.get('/developer', (req, res) => {
