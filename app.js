@@ -21,9 +21,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.engine('hbs', exphbs({
-    'extname' : 'hbs',
+    'extname': 'hbs',
     'defaultLayout': 'layout',
-    'partialsDir' : __dirname + '/views/partials/'
+    'partialsDir': __dirname + '/views/partials/'
 }))
 app.set('view engine', 'hbs')
 
@@ -47,8 +47,10 @@ app.use('/buy', require('./routes/buy'));
 
 // Do not reposition 404 code
 app.get('*', (req, res) => {
-    res.render('error-404');
+    res.render('error-404', {
+        layout: false
+    });
 });
 app.listen(PORT, () => {
-    console.log(`Server started on port`);
-});
+    console.log(`Server started on port ${PORT}`);
+}); 
