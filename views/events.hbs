@@ -58,8 +58,8 @@
                     {{/if}}
                     <br>
                     <p><strong>
-                            Event Coordinator : {{coordinator.name}} <br> Contact Number : <a
-                                href="tel:{{coordinator.phone}}">{{coordinator.phone}}</a> <br>
+                            Event Coordinator : {{coordinator.name}} <br> {{#if coordinator.phone}}Contact Number : <a
+                                href="tel:{{coordinator.phone}}">{{coordinator.phone}}</a> <br>{{/if}}
                             EmailID : <a href="mailto:{{coordinator.email}}">{{coordinator.email}}</a>
                         </strong></p>
                     {{#if problemStatement}}<a href="#">Download Problem statement</a>{{/if}}

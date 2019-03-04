@@ -1136,9 +1136,9 @@ a:focus {
 .home-4 .contact-box .inner-content {
   padding: 40px 30px;
   border-radius: 10px;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  /* -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  background: #fff;
+  background: #fff; */
   -ms-flex-item-align: center;
   align-self: center;
 }

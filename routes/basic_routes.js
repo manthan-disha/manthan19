@@ -8,7 +8,8 @@ sponserlist = sponserlist.map((e, i) => (i % 4 === 0) ? sponserlist.slice(i, i +
 
 router.get('/', (req, res) => {
     res.render('home', {
-        sponsers: sponserlist
+        sponsers: sponserlist,
+        user : req.user
     });
 });
 
@@ -45,5 +46,6 @@ router.post('/contact-submit', (req, res) => {
         res.send(`error`);
     }
 })
+
 
 module.exports = router
