@@ -1,12 +1,21 @@
 const router = require('express').Router(),
-    events = require('../bin/event-data')
+    events = require('../bin/event-data'),
+    fs = require('fs');
+let sponserlist = fs.readdirSync(`./public/assets/img/sponsers/`)
+sponserlist = sponserlist.map((e, i) => (i % 4 === 0) ? sponserlist.slice(i, i + 4) : null).filter((e) => e)
+
+// console.log(sponserlist)
 
 router.get('/', (req, res) => {
-    res.render('home');
+    res.render('home', {
+        sponsers: sponserlist
+    });
 });
 
 router.get('/about-us', (req, res) => {
-    res.render('about');
+    res.render('about', {
+        sponsers: sponserlist
+    });
 });
 
 router.get('/team', (req, res) => {
@@ -28,11 +37,10 @@ router.get('/contact-us', (req, res) => {
 });
 
 router.post('/contact-submit', (req, res) => {
-    if(req.body){
+    if (req.body) {
         console.log(req.body)
         res.send(`success`);
-    }
-    else{
+    } else {
         console.log(`error in data recieved`)
         res.send(`error`);
     }

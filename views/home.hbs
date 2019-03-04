@@ -507,133 +507,21 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <div class="single-sponsers mb80 xs-mb30">
+                {{!-- sponsor start --}}
+                {{#each sponsers}}
+                <div class="single-sponsers  xs-mb30">
                     <ul>
-                        <li class="xs-mb40"><a href="#"><img src="assets/img/sponsers/1.png" alt=""></a></li>
-                        <li class="xs-mb40"><a href="#"><img src="assets/img/sponsers/2.png" alt=""></a></li>
-                        <li class="xs-mb40"><a href="#"><img src="assets/img/sponsers/3.png" alt=""></a></li>
-                        <li><a href="#"><img src="assets/img/sponsers/4.png" alt=""></a></li>
+                        {{#each this}}
+                        <li class="xs-mb40"><img height="70" src="assets/img/sponsers/{{this}}" alt=""></li>
+                        {{/each}}
                     </ul>
                 </div>
-                <div class="single-sponsers mb80">
-                    <ul>
-                        <li class="xs-mb40"><a href="#"><img src="assets/img/sponsers/5.png" alt=""></a></li>
-                        <li class="xs-mb40"><a href="#"><img src="assets/img/sponsers/6.png" alt=""></a></li>
-                        <li class="mr-0"><a href="#"><img src="assets/img/sponsers/7.png" alt=""></a></li>
-                    </ul>
-                </div>
-                <div class="single-sponsers mb-0 d-none d-lg-block">
-                    <ul>
-                        <li class="xs-mb30"><a href="#"><img src="assets/img/sponsers/8.png" alt=""></a></li>
-                        <li class="mr-0"><a href="#"><img src="assets/img/sponsers/9.png" alt=""></a></li>
-                    </ul>
-                </div>
+                {{/each}}
+                {{!-- sponsor end --}}
             </div>
         </div>
     </div>
 </div>
-
-{{!-- <div class="our-blog-area bg-5 parallax pad100 no-s">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-                <div class="section-title">
-                    <div class="title-text pl">
-                        <h2>Our Blog</h2>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, est suscipit epicurei recusabo ex. Feugait salutatus pertinacia vis
-                        ea, delenit democritum nam in, eos dolore legere insed corrumpit vituperatat.</p>
-                </div>
-            </div>
-            <!-- /col end-->
-            <div class="col-lg-8">
-                <div class="blog-active owl-carousel owl-theme">
-                    <div class="single-blog xs-mt30">
-                        <div class="blog-img">
-                            <img class="img-fluid" src="assets/img/blog/1.jpg" alt="">
-                        </div>
-                        <div class="blog-content">
-                            <a href="blog-single.html">
-                                <h3>Events with intelligence.</h3>
-                            </a>
-                            <p>Ne sententiae constituam eam. Paulo omnes oblique sea ea, inani persius sea, ei exerci
-                                laudem recusabo eos.</p>
-                            <div class="date">
-                                <ul>
-                                    <li>
-                                        11 Nov 2017
-                                        <span class="float-right"><i class="fa fa-share-alt"></i></span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-blog xs-mt30">
-                        <div class="blog-img">
-                            <img class="img-fluid" src="assets/img/blog/2.jpg" alt="">
-                        </div>
-                        <div class="blog-content">
-                            <a href="blog-single.html">
-                                <h3>Fresh ideas for your event.</h3>
-                            </a>
-                            <p>Ne sententiae constituam eam. Paulo omnes oblique sea ea, inani persius sea, ei exerci
-                                laudem recusabo eos.</p>
-                            <div class="date">
-                                <ul>
-                                    <li>
-                                        11 Nov 2017
-                                        <span class="float-right"><i class="fa fa-share-alt"></i></span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-blog xs-mt30">
-                        <div class="blog-img">
-                            <img class="img-fluid" src="assets/img/blog/1.jpg" alt="">
-                        </div>
-                        <div class="blog-content">
-                            <a href="blog-single.html">
-                                <h3>Fresh ideas for your event.</h3>
-                            </a>
-                            <p>Ne sententiae constituam eam. Paulo omnes oblique sea ea, inani persius sea, ei exerci
-                                laudem recusabo eos.</p>
-                            <div class="date">
-                                <ul>
-                                    <li>
-                                        11 Nov 2017
-                                        <span class="float-right"><i class="fa fa-share-alt"></i></span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-blog xs-mt30">
-                        <div class="blog-img">
-                            <img class="img-fluid" src="assets/img/blog/2.jpg" alt="">
-                        </div>
-                        <div class="blog-content">
-                            <a href="blog-single.html">
-                                <h3>Fresh ideas for your event.</h3>
-                            </a>
-                            <p>Ne sententiae constituam eam. Paulo omnes oblique sea ea, inani persius sea, ei exerci
-                                laudem recusabo eos.</p>
-                            <div class="date">
-                                <ul>
-                                    <li>
-                                        11 Nov 2017
-                                        <span class="float-right"><i class="fa fa-share-alt"></i></span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
 
 <div class="gmap">
     <div id="googlemap"></div>

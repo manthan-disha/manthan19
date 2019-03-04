@@ -20,11 +20,13 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-app.engine('hbs', exphbs({
+let hbs = exphbs.create({
     'extname': 'hbs',
     'defaultLayout': 'layout',
-    'partialsDir': __dirname + '/views/partials/'
-}))
+    'partialsDir': __dirname + '/views/partials/',
+})
+
+app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
 
 app.use(minifyHTML({
@@ -53,4 +55,4 @@ app.get('*', (req, res) => {
 });
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
-}); 
+});
