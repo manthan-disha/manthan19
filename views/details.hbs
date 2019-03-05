@@ -1,0 +1,64 @@
+<div class="bg-about" style="padding: 40px 0;"></div>
+<div class="container">
+    <div class="pad100">
+        <h2> Welcome aboard! {{user.username}}</h2>
+        <p>Lets start by filling some basic info about you!</p>
+        <br>
+        <form method="post">
+            <div class="form-group">
+                <label for="inputState">College <span class="required">*</span></label>
+                <select name="college" id="inputState" class="form-control" required>
+                    <option value="College of engineering roorkee" selected>College of Engineering Roorkee</option>
+                    <option value="others">Others</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="other" name="othername" disabled>
+                <small class="form-text text-muted">enter your college name if other</small>
+            </div>
+            <div class="form-group">
+                <label for="city">City <span class="required">*</span></label>
+                <input type="text" name="city" class="form-control" id="city" placeholder="City your college is in"
+                    required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="branch">Branch</label>
+                    <input type="text" name="branch" class="form-control" id="branch">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="year">Year</label>
+                    <input type="text" name="year" class="form-control" id="year" pattern="[12345]{1}">
+                    <small class="form-text text-muted">the current year of study</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile Number <span class="required">*</span></label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">+91</div>
+                    </div>
+                    <input type="text" name="mobile" class="form-control" id="mobile" pattern="[6789][0-9]{9}" required>
+                </div>
+                <small class="form-text text-muted">Don't worry we won't spam you !</small>
+            </div>
+            <br>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="accomodation" id="accomodation">
+                <label class="form-check-label" for="accomodation">
+                    Accomodation required ?
+                </label>
+            </div>
+            <p class="required">Please note the fields marked with * are mandatory</p>
+            <br>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+
+    </div>
+</div>
+
+<style>
+    .required{
+        color: rgb(223, 51, 59);
+    }
+</style>

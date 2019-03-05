@@ -34,6 +34,13 @@ let hbs = exphbs.create({
     'extname': 'hbs',
     'defaultLayout': 'layout',
     'partialsDir': __dirname + '/views/partials/',
+    helpers: {
+        checkEvent: (event, array, opts) => {
+            let ar = []
+            ar.concat(array)
+            return array.includes(event) ? opts.inverse(this) : opts.fn(this)
+        }
+    }
 })
 
 app.engine('hbs', hbs.engine)
@@ -56,6 +63,7 @@ app.use(minifyHTML({
 app.use('/', require('./routes/basic_routes'));
 app.use('/user', require('./routes/login'));
 app.use('/buy', require('./routes/buy'));
+app.use('/profile', require('./routes/profile'));
 
 
 // Do not reposition 404 code

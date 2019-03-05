@@ -1,0 +1,108 @@
+<div class="bg-about" style="padding: 40px 0;">
+</div>
+<div class="pad50">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile">
+                    <div class="avatar">
+                        <img src="{{user.profileImage}}">
+                    </div>
+                    <div class="user-details">
+                        <h3>{{user.username}}</h3>
+                        <br>
+                        <p>Manthan ID : {{user.id}}</p>
+                        <p>Email ID : {{user.email}}</p>
+                        {{#if user.mobile}}
+                        <p>Phone Number : {{user.mobile}}</p>
+                        {{/if}}
+                        {{#if user.college}}
+                        <p>College : {{user.college}}</p>
+                        {{/if}}
+                        <p style="color:rgb(223, 51, 59);">Payment Status :
+                            {{#if user.payment}}Complete{{else}}Pending{{/if}}</p>
+                            <p> Payment Option will be available soon</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a data-toggle="tab" href="#events">Registered Events</a></li>
+                    <li><a data-toggle="tab" href="#profile">Edit Profile</a></li>
+                    {{#if user.kuruInfo.registered}}<li><a data-toggle="tab" href="#kuruinfo">Kurukshetra Team Info</a></li>{{/if}}
+                </ul>
+                <div class="tab-content">
+                    <div id="events" class="active tab-pane in">
+                        <h3>Regsitered Events</h3>
+                        <br>
+                        {{#if user.events}}
+                        {{#each user.events}}
+                        <div class="card">
+                            <h5>{{this}}</h5>
+                        </div>
+                        {{/each}}
+                        {{else}}
+                        <p>Please go to <a href="/events">Events</a> page and register for events.</p>
+                        {{/if}}
+                    </div>
+                    <div id="profile" class="tab-pane fade">
+                        <h3>Edit Profile</h3>
+                        <br>
+                        <p>This section will be available soon.</p>
+                    </div>
+                    <div id="kuruinfo" class="tab-pane fade">
+                        <h3>Menu 2</h3>
+                        {{> KuruTeam}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card{
+        margin-bottom: 20px;
+        padding: 15px 25px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.048), 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-tabs li {
+        margin: 20px;
+    }
+
+    .pad50 {
+        padding: 50px;
+    }
+
+    .profile {
+        padding: 15%;
+    }
+
+    .avatar {
+        width: inherit;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .avatar img {
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 100%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    }
+
+    .user-details {
+        padding: 40px 0;
+        text-align: center;
+        color: #1a1a1a;
+
+    }
+
+    .user-details h3 {
+        letter-spacing: 3px;
+    }
+    .tab-content{
+        padding: 20px;
+    }
+</style>

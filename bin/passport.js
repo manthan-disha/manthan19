@@ -36,7 +36,10 @@ passport.use(
                     profileImage: image.replace('sz=50','sz=200'),
                     basicInfo: false,
                     payment: false,
-                    email: email
+                    email: email,
+                    kuruInfo: {
+                        registered : false
+                    }
                 }).save().then((newUser) => {
                     done(null, newUser)
                 })

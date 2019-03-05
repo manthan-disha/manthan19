@@ -20,15 +20,28 @@
 <div class="speakers-single-area pad100">
     <div class="container">
         {{#each events}}
+        
         <div class="row">
             <div class="col-lg-5 col-md-12">
-                <div class="speakers-img">
+                <div class="speakers-img" style="">
                     <img class="img-fluid" src="assets/img/events/{{this.image}}.png" alt="{{this.name}}">
                 </div>
             </div>
             <div class="col-lg-7 col-md-12">
                 <div class="inner-content">
-                    <h1>{{this.name}}</h1>
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <h1>{{this.name}}</h1>
+                        </div>
+                        <div class="col-sm-5">
+                            {{#if ../user}}
+                            {{#checkEvent this.name ../user.events}}
+                            <button class="btn btn-info event-register" style="padding: 10px 20px; margin-top:34px;"
+                                data-id="{{../this.name}}"> Register</button>
+                            {{/checkEvent}}
+                            {{/if}}
+                        </div>
+                    </div>
                     <span>{{{this.description}}}</span>
                     <p>{{{content}}}</p>
                     {{#if catagories}}<p style="color:rgb(223, 51, 59);">Catagories</p>
@@ -58,14 +71,45 @@
                     {{/if}}
                     <br>
                     <p><strong>
-                            Event Coordinator : {{coordinator.name}} <br> {{#if coordinator.phone}}Contact Number : <a
-                                href="tel:{{coordinator.phone}}">{{coordinator.phone}}</a> <br>{{/if}}
-                            EmailID : <a href="mailto:{{coordinator.email}}">{{coordinator.email}}</a>
+                            Event Coordinator : {{coordinator.name}}
+                            <br>
+                            {{#if coordinator.phone}}
+                            Contact Number :
+                            {{#each coordinator.phone}}
+                            <a href="tel:{{this}}">{{this}}</a><br>
+                            {{/each}}
+                            {{/if}}
+                            Email ID :
+                            {{#each coordinator.email}}
+                            <a href="mailto:{{this}}">{{this}}</a>
+                            <br>
+                            {{/each}}
                         </strong></p>
                     {{#if problemStatement}}<a href="#">Download Problem statement</a>{{/if}}
                 </div>
             </div>
         </div>
         {{/each}}
+        <div class="pad100">
+            <h2>We also have many fun filled Informal events</h2>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="registrationModal" data-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content" style="padding: 20px;">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <br>
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <p style="font-size:1.4em;" id="reg-status">Registering.</p>
+            </div>
+        </div>
     </div>
 </div>

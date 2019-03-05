@@ -17,7 +17,7 @@
                 $(this).remove();
             })
         });
-        
+
         new WOW().init();
 
 
@@ -219,6 +219,52 @@
     });
     //dom ready end
 
+    let path = window.location.pathname,
+        li = $('#navbarSupportedContent ul'),
+        addClassOriginal = jQuery.fn.addClass
+    switch (path) {
+        case `/`:
+            li.children().first().addClass('active')
+            break
+        case `/events`:
+            li.children().eq(1).addClass('active')
+            break
+        case `/about-us`:
+            li.children().eq(2).addClass('active')
+            break
+        case `/team`:
+            li.children().eq(3).addClass(`active`)
+            break
+    }
 
+    $('#inputState').change(() => {
+        if ($("#inputState").val() == "others") {
+            $("#other").removeAttr("disabled")
+        } else {
+            $("#other").attr('disabled', 'disabled').val('')
+        }
+    }).trigger('change')
+
+    $('.event-register').click((e) => {
+        $('#registrationModal').modal('show')
+        var eventid = e.target.getAttribute('data-id')
+        console.log(eventid)
+        $.ajax({
+            type: "POST",
+            url: "/profile/register/event",
+            data: `eventid=${eventid}`,
+            success: function (text) {
+                if (text == "success") {
+                    if (eventid === 'Kurukshetra')
+                        return $('#reg-status').html('Registered<br>Please go to <a href="/user/profile">profile</a> and complete the team details')
+                    $('#reg-status').html('Registered')
+                    e.target.remove()
+                } else {
+                    $('#reg-status').html('Error occured, please try again')
+
+                }
+            }
+        });
+    })
 
 })(jQuery);

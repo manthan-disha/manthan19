@@ -15,8 +15,8 @@ module.exports = events = [{
         rounds: false,
         coordinator: {
             name: "Chirag Kansal & Jayati Tiwari",
-            phone: "8979243090",
-            email: "chiragkansalofficial089@gmail.com & jayati.innovationahead@gmail.com"
+            phone: ["8979243090"],
+            email: ["chiragkansalofficial089@gmail.com", "jayati.innovationahead@gmail.com"]
         },
         problemStatement: "#",
         image: "codex"
@@ -34,8 +34,8 @@ module.exports = events = [{
         }],
         coordinator: {
             name: "Suraj Kumar",
-            phone: "8218710600",
-            email: "suraj.success121@gmail.com"
+            phone: ["8218710600"],
+            email: ["suraj.success121@gmail.com"]
         },
         problemStatement: false,
         image: "gigabit"
@@ -54,7 +54,7 @@ module.exports = events = [{
         coordinator: {
             name: "Smauli Singh",
             phone: false,
-            email: "smauli06243@gmail.com"
+            email: ["smauli06243@gmail.com"]
         },
         problemStatement: false,
         image: "blitzkrieg"
@@ -69,8 +69,8 @@ module.exports = events = [{
         }],
         coordinator: {
             name: "Shivansh Dixit & Abhimanyu Bajaj",
-            phone: "8979266002 & 8958010001",
-            email: "shivanshdxt@gmail.com"
+            phone: ["8979266002" , "8958010001"],
+            email: ["shivanshdxt@gmail.com"]
         },
         problemStatement: false,
         image: "engadget"
@@ -85,14 +85,15 @@ module.exports = events = [{
         }, {
             name: "Executive Summary Round :",
             des: ["This is a presentation round. It must consist of:- ",
-        " Introduction (Summary)","Product and/or service ", " Future product development and goals for future expansion",
-    " Market and Marketing Strategy", " Who are your competitors and what are their strengths and weaknesses?", "Operations",
-" SWOT Analysis ", "Financial Analysis ", "*Any other points relative to the plan which may enhance its efficiency may be added but thesummary must contain the points mentioned above failing which may lead to disqualification"]
+                " Introduction (Summary)", "Product and/or service ", " Future product development and goals for future expansion",
+                " Market and Marketing Strategy", " Who are your competitors and what are their strengths and weaknesses?", "Operations",
+                " SWOT Analysis ", "Financial Analysis ", "*Any other points relative to the plan which may enhance its efficiency may be added but thesummary must contain the points mentioned above failing which may lead to disqualification"
+            ]
         }],
         coordinator: {
             name: "Akshat Agarwal",
-            phone: "8410311361",
-            email: "akshatdude11@gmail.com"
+            phone: ["8410311361"],
+            email: ["akshatdude11@gmail.com"]
         },
         problemStatement: false,
         image: "strategem"
@@ -114,7 +115,7 @@ module.exports = events = [{
         coordinator: {
             name: "Shreya Singh",
             phone: false,
-            email: "shreyasingh12456@gmail.com"
+            email: ["shreyasingh12456@gmail.com"]
         },
         problemStatement: false,
         image: "kouiz"
@@ -129,13 +130,13 @@ module.exports = events = [{
         }],
         coordinator: {
             name: "Shashank Tyagi & Priyanka Singh",
-            phone: "9997316168 ",
-            email: "shashanktyagi110@gmail.com & riyasingh26aug@gmail.com"
+            phone: ["9997316168 "],
+            email: ["shashanktyagi110@gmail.com", "riyasingh26aug@gmail.com"]
         },
         problemStatement: false,
         image: "seriogeek"
     }, {
-        name: "prayog",
+        name: "Prayog",
         description: `Model Making Event `,
         content: "This event includes 2 categories",
         catagories: [{
@@ -155,7 +156,7 @@ module.exports = events = [{
         coordinator: {
             name: "Shikha Pandey",
             phone: false,
-            email: "sp278648@gmail.com"
+            email: ["sp278648@gmail.com"]
         },
         problemStatement: false,
         image: "prayog"
@@ -168,7 +169,7 @@ module.exports = events = [{
             des: ["Objective paper consisting of verbal & non-verbal questions."]
         }, {
             name: "Day 2:",
-            des: ["Psychological Test & Motivational Session", " TAT - Thematic Apperception Test", " WAT - Word Association Test ", "SRT- Situation Reaction Test (question paper) "," Self Description"]
+            des: ["Psychological Test & Motivational Session", " TAT - Thematic Apperception Test", " WAT - Word Association Test ", "SRT- Situation Reaction Test (question paper) ", " Self Description"]
         }, {
             name: "Day 3 :",
             des: [" Group Planning Exercise:", "GD & Lecturette", "Interviews of Selected Students"]
@@ -176,9 +177,9 @@ module.exports = events = [{
         rounds: false,
         coordinator: {
             name: "Ayushmaan Rana & Vaishali Bhardwaj",
-            phone: "8449745607 ",
-            email: "ayushmaanrana108@gmail.com & vaishali.bdwj@gmail.com"
-        }, 
+            phone: ["8449745607 "],
+            email: ["ayushmaanrana108@gmail.com", "vaishali.bdwj@gmail.com"]
+        },
         problemStatement: false,
         image: "shaurya"
     }, {
@@ -198,8 +199,8 @@ module.exports = events = [{
         rounds: false,
         coordinator: {
             name: "Sharad Pandey",
-            phone: "8449308998 ",
-            email: "sharadpandey7309@gmail.com"
+            phone: ["8449308998 "],
+            email: ["sharadpandey7309@gmail.com"]
         },
         problemStatement: false,
         image: "robo"
@@ -210,9 +211,10 @@ module.exports = events = [{
         catagories: [{
             name: "Counter Strike Global Offensive:",
             des: ["Team containing five members participate and fight to prove their superiority",
-        "Two Pools A and B are made ",
-        "Pool A: Teams of our College", 
-        "Pool B: Teams of other College."]
+                "Two Pools A and B are made ",
+                "Pool A: Teams of our College",
+                "Pool B: Teams of other College."
+            ]
         }, {
             name: "Dota 2 :",
             des: ["Team containing five members participate and fight to prove their superiority ", "Two Pools A and B are made ", "Pool A: Teams of our College", "Pool B: Teams of other Colleges"]
@@ -220,44 +222,47 @@ module.exports = events = [{
         rounds: false,
         coordinator: {
             name: "Tarun Kanwasi",
-            phone: "8384820002",
-            email: "tarunkan0@gmail.com"
+            phone: ["8384820002"],
+            email: ["tarunkan0@gmail.com"]
         },
         problemStatement: false,
         image: "kuru"
-    }, 
+    },
 
     {
-        name: "Bridge-it",
+        name: "Bridge It",
         description: `Popsicle sticks Bridge Making Competition`,
         content: "Participants shall build a bridge only with: Popsicle sticks & Fevicol (Adhesive).Team may consist of maximum 3 members.Only one bridge per team can be entered for the challenge. ",
         catagories: [{
             name: "Bridge must meet with following specifications:",
-            des: ["Length: - 50-60cm (Edge to edge)", 
-        "Height:-10-20cm (Edge to edge)",
-        "Width:-10-15cm (Edge to edge)",]
+            des: ["Length: - 50-60cm (Edge to edge)",
+                "Height:-10-20cm (Edge to edge)",
+                "Width:-10-15cm (Edge to edge)",
+            ]
         }, {
             name: "Testing of bridge :",
             des: ["Bridge shall be tested for its ultimate load bearing capacity",
-             "Assessment will be made as per following equation", 
-             "Strength factor = (Load taken by bridge)/( Dead weight of bridge) ",
-              "Loading shall be through type. A plate of 8cm X 20cm shall be inserted with the bridge with loop and load shall be applied to same",
-            "Bridge will be loaded till it collapses with bucket and sand mechanism with gradual loading"]
+                "Assessment will be made as per following equation",
+                "Strength factor = (Load taken by bridge)/( Dead weight of bridge) ",
+                "Loading shall be through type. A plate of 8cm X 20cm shall be inserted with the bridge with loop and load shall be applied to same",
+                "Bridge will be loaded till it collapses with bucket and sand mechanism with gradual loading"
+            ]
         }, {
             name: "Bridge will be disqualified under following circumstances",
-            des: ["Mixing of wood dust with Fevicol", 
-        "Use of any other binding material except Fevicol",
-        "Use of any other material except Popsicle sticks","Dimensions not according to specifications",
-        "If inside of bridge is not suitable for test plate", "*There should be a hole at the center of the bridge for placing loop/ring of the test plate",
-    "*Bridge having maximum ratio shall be the winner",
-"* Decision of jury shall be final and no argument will be entertained",
-"* The winning bridge will be displayed in civil engineering dept"]
+            des: ["Mixing of wood dust with Fevicol",
+                "Use of any other binding material except Fevicol",
+                "Use of any other material except Popsicle sticks", "Dimensions not according to specifications",
+                "If inside of bridge is not suitable for test plate", "*There should be a hole at the center of the bridge for placing loop/ring of the test plate",
+                "*Bridge having maximum ratio shall be the winner",
+                "* Decision of jury shall be final and no argument will be entertained",
+                "* The winning bridge will be displayed in civil engineering dept"
+            ]
         }],
         rounds: false,
         coordinator: {
             name: "Vaibhav Gupta",
-            phone: "9410153534",
-            email: "vaibhavgupta1904@gmail.com"
+            phone: ["9410153534"],
+            email: ["vaibhavgupta1904@gmail.com"]
         },
         problemStatement: false,
         image: "bridgeit"

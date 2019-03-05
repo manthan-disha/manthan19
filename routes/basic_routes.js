@@ -4,28 +4,36 @@ const router = require('express').Router(),
 let sponserlist = fs.readdirSync(`./public/assets/img/sponsers/`)
 sponserlist = sponserlist.map((e, i) => (i % 4 === 0) ? sponserlist.slice(i, i + 4) : null).filter((e) => e)
 
-// console.log(sponserlist)
+
 
 router.get('/', (req, res) => {
     res.render('home', {
         sponsers: sponserlist,
-        user : req.user
+        user: req.user,
+        title : `Manthan 2019 | Home`
     });
 });
 
 router.get('/about-us', (req, res) => {
     res.render('about', {
-        sponsers: sponserlist
+        sponsers: sponserlist,
+        user: req.user,
+        title : `Manthan 2019 | About Us`
     });
 });
 
 router.get('/team', (req, res) => {
-    res.render('team');
+    res.render('team',{
+        user: req.user,
+        title: `Manthan 2019 | Team`
+    });
 });
 
 router.get('/events', (req, res) => {
     res.render('events', {
-        events: events
+        events: events,
+        user: req.user,
+        title: `Manthan 2019 | Events`
     });
 });
 
@@ -34,7 +42,10 @@ router.get('/developer', (req, res) => {
 });
 
 router.get('/contact-us', (req, res) => {
-    res.render('contact');
+    res.render('contact',{
+        user: req.user,
+        title: `Manthan 2019 | Contact Us`
+    });
 });
 
 router.post('/contact-submit', (req, res) => {
