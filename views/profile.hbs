@@ -36,6 +36,7 @@
                     <div id="events" class="active tab-pane in">
                         <h3>Regsitered Events</h3>
                         <br>
+                        <p>Please go to <a href="/events">Events</a> page and register for events.</p>
                         {{#if user.events}}
                         {{#each user.events}}
                         <div class="card">
@@ -43,7 +44,7 @@
                         </div>
                         {{/each}}
                         {{else}}
-                        <p>Please go to <a href="/events">Events</a> page and register for events.</p>
+                        <p>You currently have no events subscribed, please subscribe one to see here.</p>
                         {{/if}}
                     </div>
                     <div id="profile" class="tab-pane fade">
