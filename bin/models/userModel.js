@@ -22,6 +22,7 @@ let UserSchema = new Schema({
     paymentReq: String,
     kuruInfo: {
         registered: Boolean,
+        info  : Boolean,
         teamLeader: String,
         teamName: String,
         game: String,

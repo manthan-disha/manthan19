@@ -21,7 +21,7 @@
                         {{/if}}
                         <p style="color:rgb(223, 51, 59);">Payment Status :
                             {{#if user.payment}}Complete{{else}}Pending{{/if}}</p>
-                            <p> Payment Option will be available soon</p>
+                        <p> Payment Option will be available soon</p>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,8 @@
                 <ul class="nav nav-tabs nav-justified">
                     <li class="active"><a data-toggle="tab" href="#events">Registered Events</a></li>
                     <li><a data-toggle="tab" href="#profile">Edit Profile</a></li>
-                    {{#if user.kuruInfo.registered}}<li><a data-toggle="tab" href="#kuruinfo">Kurukshetra Team Info</a></li>{{/if}}
+                    {{#if user.kuruInfo.registered}}<li><a data-toggle="tab" href="#kuruinfo">Kurukshetra Team Info</a>
+                    </li>{{/if}}
                 </ul>
                 <div class="tab-content">
                     <div id="events" class="active tab-pane in">
@@ -51,8 +52,12 @@
                         <p>This section will be available soon.</p>
                     </div>
                     <div id="kuruinfo" class="tab-pane fade">
-                        <h3>Menu 2</h3>
+                        <h3>Kurukshetra team details</h3>
+                        {{#if user.kuruInfo.info}}
+                        <p>All done here, editing options will be available soon.</p>
+                        {{else}}
                         {{> KuruTeam}}
+                        {{/if}}
                     </div>
                 </div>
             </div>
@@ -61,7 +66,7 @@
 </div>
 
 <style>
-    .card{
+    .card {
         margin-bottom: 20px;
         padding: 15px 25px;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.048), 0 3px 6px rgba(0, 0, 0, 0.1);
@@ -102,7 +107,8 @@
     .user-details h3 {
         letter-spacing: 3px;
     }
-    .tab-content{
+
+    .tab-content {
         padding: 20px;
     }
 </style>

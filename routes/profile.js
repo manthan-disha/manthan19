@@ -14,13 +14,17 @@ const router = require('express').Router(),
     isFirstTime = (req, res, next) => {
         if (!req.user.basicInfo) next()
         else res.redirect('/user/profile');
+    },
+    CheckKuru = (r, s, n) => {
+        if (r.user.kuruInfo.registered) n()
+        else res.send('not allowed')
     }
 
 router.post('/edit', (req, res) => {
 
 });
 
-router.post('/register/event', (req, res) => {
+router.post('/register/event', isLogged, (req, res) => {
     console.log(req.body)
     if (req.body) {
         let eventid = req.body.eventid
@@ -57,7 +61,7 @@ router.get('/details', isFirstTime, (req, res) => {
     });
 });
 
-router.post('/details', isFirstTime, (r, s) => {
+router.post('/details', isLogged, isFirstTime, (r, s) => {
     if (!r.body) return s.send('Invalid request')
     let newData = {
         basicInfo: true,
@@ -77,8 +81,39 @@ router.post('/details', isFirstTime, (r, s) => {
     })
 });
 
-router.get('/kurukshetra/team', (req, res) => {
+router.post('/kurukshetra/team', isLogged, (req, res) => {
+    if (req.body) {
+        let membersArray = [];
+        req.body.memname.forEach((element, index) => {
+            membersArray.push({
+                "name": element,
+                "mobile": req.body.mob[index]
+            })
+        });
 
+        let newData = {
+            kuruInfo: {
+                registered: true,
+                info: true,
+                teamLeader: req.user.username,
+                teamName: req.body.teamname,
+                game: req.body.game,
+                members: membersArray
+            }
+        }
+        User.findOneAndUpdate({
+            username: req.user.username
+        }, newData, (err, doc) => {
+            if (err) return s.send('error occured')
+            console.log(doc)
+            // require("../teamMailer").sendTeamMail(newData, (err) => {
+            //     console.log("mail sent to shuhul");
+            // })
+            res.send('success')
+        })
+    } else {
+        res.send('error')
+    }
 });
 
 

@@ -1,4 +1,4 @@
-<form method="post">
+<form method="post" id="kuru-info">
     <div class="form-group">
         <label for="teamName">Team Name</label>
         <input type="text" class="form-control" id="teamName" name="teamname" required>
@@ -19,8 +19,8 @@
             <small class="form-text text-muted">Name you use in-game.</small>
         </div>
         <div class="form-group col-md-6">
-            <input type="text" name="mob" class="form-control" placeholder="Mobile number" readonly value="{{user.mobile}}"
-                pattern="[6789][0-9]{9}" required>
+            <input type="text" name="mob" class="form-control" placeholder="Mobile number" readonly
+                value="{{user.mobile}}" pattern="[6789][0-9]{9}" required>
             <small class="form-text text-muted">You obviously have one</small>
         </div>
     </div>
@@ -42,3 +42,16 @@
     <button type="submit" class="btn btn-info">Submit</button>
 
 </form>
+
+<div class="modal fade" id="kuruTeam" data-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="padding: 20px;">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="d-flex justify-content-center">
+                <p style="font-size:1.4em;" id="team-status">Sending...</p>
+            </div>
+        </div>
+    </div>
+</div>

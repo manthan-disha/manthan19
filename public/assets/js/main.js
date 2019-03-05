@@ -254,14 +254,33 @@
             url: "/profile/register/event",
             data: `eventid=${eventid}`,
             success: function (text) {
+                e.target.remove()
                 if (text == "success") {
                     if (eventid === 'Kurukshetra')
                         return $('#reg-status').html('Registered<br>Please go to <a href="/user/profile">profile</a> and complete the team details')
                     $('#reg-status').html('Registered')
-                    e.target.remove()
                 } else {
                     $('#reg-status').html('Error occured, please try again')
 
+                }
+            }
+        });
+    })
+
+    $('#kuru-info').on('submit', (e) => {
+        e.preventDefault();
+        $('#kuruTeam').modal('show')
+        $.ajax({
+            type: "POST",
+            url: "/profile/kurukshetra/team",
+            data: $(e.target).serialize(),
+            success: function (text) {
+                if (text == "success") {
+                    $('#team-status').html('Successful !')
+                    $('#kuru-info').remove()
+                    $('#kuruinfo').append('<p>All done here, editing options will be available soon.</p>')
+                } else {
+                    $('#team-status').html('Error occured, try again.')
                 }
             }
         });

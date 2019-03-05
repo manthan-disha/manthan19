@@ -38,7 +38,8 @@ passport.use(
                     payment: false,
                     email: email,
                     kuruInfo: {
-                        registered : false
+                        registered : false,
+                        info : false
                     }
                 }).save().then((newUser) => {
                     done(null, newUser)
