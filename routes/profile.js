@@ -61,8 +61,9 @@ router.get('/details', isFirstTime, (req, res) => {
     });
 });
 
-router.post('/details', isLogged, isFirstTime, (r, s) => {
+router.post('/details', isLogged, (r, s) => {
     if (!r.body) return s.send('Invalid request')
+    
     let newData = {
         basicInfo: true,
         college: r.body.othername ? r.body.othername : r.body.college,
@@ -77,7 +78,8 @@ router.post('/details', isLogged, isFirstTime, (r, s) => {
         'username': r.user.username
     }, newData, (err, doc) => {
         if (err) return s.send('error occured')
-        return s.redirect('/user/profile')
+        console.log(`details updated`)
+        s.redirect('/user/profile')
     })
 });
 

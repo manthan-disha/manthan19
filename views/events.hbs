@@ -43,13 +43,13 @@
                         </div>
                     </div>
                     <span>{{{this.description}}}</span>
-                    <p>{{{content}}}</p>
+                    {{#if content}}<p>{{{content}}}</p>{{/if}}
                     {{#if catagories}}<p style="color:rgb(223, 51, 59);">Catagories</p>
                     <ol>
                         {{#each this.catagories}}
                         <li>
                             <strong>{{this.name}}</strong>
-                            <p>{{this.des}}</p>
+                            {{#if this.des}}<p>{{this.des}}</p>{{/if}}
                         </li>
                         {{/each}}
                     </ol>
@@ -60,9 +60,9 @@
                         <li>
                             <strong>{{this.name}}</strong>
                             <ul style="list-style:round;">
-                                {{#each this.des}}
+                                {{#if this.des}}{{#each this.des}}
                                 <li>&bull; {{this}}</li>
-                                {{/each}}
+                                {{/each}}{{/if}}
                             </ul>
                         </li>
                         <br>

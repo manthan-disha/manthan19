@@ -192,8 +192,16 @@ html .ui-button.ui-state-disabled:active {
 }
 
 .logo-loader {
-  height: 200px;
-  width: 200px;
+  height: 80px;
+  width: 80px;
+  animation: beat .25s infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes beat {
+  to {
+    transform: scale(1.4);
+  }
 }
 
 .loader--dot {
@@ -2879,13 +2887,14 @@ a:focus {
   text-transform: capitalize;
 }
 
-.speakers-single-area div.row:not(:first-child):not(:last-child){
+.speakers-single-area div.row:not(:first-child):not(:last-child) {
   padding: 50px 0 !important;
 }
 
-.speakers-single-area div.row:last-child{
+.speakers-single-area div.row:last-child {
   padding-top: 50px !important;
 }
+
 .speakers-single-area div.row:first-child {
   padding-bottom: 50px !important;
 }
@@ -3223,4 +3232,8 @@ a:focus {
 
 .shop button {
   top: 10px !important;
+}
+
+br {
+  display: block !important;
 }
