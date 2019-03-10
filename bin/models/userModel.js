@@ -1,7 +1,6 @@
 const mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    shortid = require('shortid')
-    mongoose.plugin(require('mongoose-nanoid'),5)
+    Schema = mongoose.Schema
+mongoose.plugin(require('mongoose-nanoid'), 5)
 
 
 let UserSchema = new Schema({
@@ -22,10 +21,21 @@ let UserSchema = new Schema({
     paymentReq: String,
     kuruInfo: {
         registered: Boolean,
-        info  : Boolean,
+        info: Boolean,
         teamLeader: String,
         teamName: String,
         game: String,
+        members: [{
+            name: String,
+            mobile: String
+        }]
+    },
+    RoboInfo: {
+        registered: Boolean,
+        info: Boolean,
+        teamLeader: String,
+        teamName: String,
+        events: [String],
         members: [{
             name: String,
             mobile: String

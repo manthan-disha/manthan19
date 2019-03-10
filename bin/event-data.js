@@ -30,7 +30,7 @@ module.exports = events = [{
             des: ["Participants have to solve 50 MCQs in 60 minutes on an online platform"]
         }, {
             name: "Round 2: Coding Round",
-            des: ["There will be 10 questions each which you have to execute in 40 mins. ", "All the program should successfully compile on your machine and the output should be generated then only it will be considered as an answer", "All the program should successfully compile on your machine and output should be generated then only it will be considered as an answer.", "No compiler related error will be acknowledged"]
+            des: ["There will be 10 questions each which you have to execute in 40 mins.", "All the program should successfully compile on your machine and output should be generated then only it will be considered as an answer.", "No compiler related error will be acknowledged"]
         }],
         coordinator: {
             name: "Suraj Kumar",
@@ -49,7 +49,7 @@ module.exports = events = [{
             des: ["It is a team event of 2 members and is based on business quiz with objective type questions"]
         }, {
             name: "Round 2:",
-            des: ["Selected teams will be divided into groups of 2 members each. Each group has to prepare a presentation on the topics given by us in a specified given time"]
+            des: ["Selected teams will be divided into groups of 2 members each. Each group has to prepare a presentation on the topics given by us in a specified time."]
         }],
         coordinator: {
             name: "Smauli Singh",
@@ -69,7 +69,7 @@ module.exports = events = [{
         }],
         coordinator: {
             name: "Shivansh Dixit & Abhimanyu Bajaj",
-            phone: ["8979266002" , "8958010001"],
+            phone: ["8979266002", "8958010001"],
             email: ["shivanshdxt@gmail.com"]
         },
         problemStatement: false,
@@ -242,7 +242,7 @@ module.exports = events = [{
         }, {
             name: "Testing of bridge :",
             des: ["Bridge shall be tested for its ultimate load bearing capacity",
-                "Assessment will be made as per following equation",
+                "Assessment will be made as per following equation:-",
                 "Strength factor = (Load taken by bridge)/( Dead weight of bridge) ",
                 "Loading shall be through type. A plate of 8cm X 20cm shall be inserted with the bridge with loop and load shall be applied to same",
                 "Bridge will be loaded till it collapses with bucket and sand mechanism with gradual loading"

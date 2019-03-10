@@ -1,22 +1,23 @@
-<form method="post" id="kuru-info">
+<form method="post" id="robo-info">
     <div class="form-group">
         <label for="teamName">Team Name</label>
-        <input type="text" class="form-control" id="teamName" name="teamname" required value="{{user.kuruInfo.name}}">
+        <input type="text" class="form-control" id="teamName" name="teamname" required>
         <small class="form-text text-muted">Alone we can do so little, together we can do so much.</small>
     </div>
     <div class="form-group">
-        <label for="inputGame">Game</label>
-        <select name="game" id="inputGame" class="form-control" required>
-            <option value="CSGO" selected>Counter Strike : Global Offensive</option>
-            <option value="DOTA2">Dota 2</option>
+        <label for="events">Events you want to participate in</label>
+        <select multiple name="events" class="form-control" id="events" size="4" style="padding:15px" required>
+            <option>RoboWar</option>
+            <option>LFR (Line following robot)</option>
+            <option>Robo Soccer</option>
         </select>
-        <small class="form-text text-muted">Whichever is you professional skill</small>
+        <small class="form-text text-muted">ctrl select multiple events</small>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <input type="text" name="memname" class="form-control" placeholder="Name" readonly value="{{user.username}}"
                 required>
-            <small class="form-text text-muted">Name you use in-game.</small>
+            <small class="form-text text-muted">Name</small>
         </div>
         <div class="form-group col-md-6">
             <input type="text" name="mob" class="form-control" placeholder="Mobile number" readonly
@@ -24,16 +25,15 @@
             <small class="form-text text-muted">You obviously have one</small>
         </div>
     </div>
-    {{#each kuruNumber}}
+    {{#each roboNumber}}
     <label>Member {{this}}</label>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <input type="text" name="memname" class="form-control" placeholder="Name" required>
-            <small class="form-text text-muted">Name you use in-game.</small>
+            <input type="text" name="memname" class="form-control" placeholder="Name">
+            <small class="form-text text-muted">Name</small>
         </div>
         <div class="form-group col-md-6">
-            <input type="text" name="mob" class="form-control" placeholder="Mobile number" pattern="[6789][0-9]{9}"
-                required>
+            <input type="text" name="mob" class="form-control" placeholder="Mobile number" pattern="[6789][0-9]{9}">
             <small class="form-text text-muted">You obviously have one</small>
         </div>
     </div>
@@ -43,7 +43,7 @@
 
 </form>
 
-<div class="modal fade" id="kuruTeam" data-backdrop="static">
+<div class="modal fade" id="roboTeam" data-backdrop="static">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="padding: 20px;">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">

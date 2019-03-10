@@ -31,10 +31,12 @@
                     <li><a data-toggle="tab" href="#profile">Edit Profile</a></li>
                     {{#if user.kuruInfo.registered}}<li><a data-toggle="tab" href="#kuruinfo">Kurukshetra Team Info</a>
                     </li>{{/if}}
+                    {{#if user.RoboInfo.registered}}<li><a data-toggle="tab" href="#roboinfo">Robosync Team Info</a>
+                    </li>{{/if}}
                 </ul>
                 <div class="tab-content">
                     <div id="events" class="active tab-pane in">
-                        <h3>Regsitered Events</h3>
+                        <h3>Registered Events</h3>
                         <br>
                         <p>Please go to <a href="/events">Events</a> page and register for events.</p>
                         {{#if user.events}}
@@ -55,9 +57,17 @@
                     <div id="kuruinfo" class="tab-pane fade">
                         <h3>Kurukshetra team details</h3>
                         {{#if user.kuruInfo.info}}
-                        <p>All done here, editing options will be available soon.</p>
+                        {{> KuruTeamInfo}}
                         {{else}}
                         {{> KuruTeam}}
+                        {{/if}}
+                    </div>
+                    <div id="roboinfo" class="tab-pane fade">
+                        <h3>Robosync team details</h3>
+                        {{#if user.RoboInfo.info}}
+                        {{> RoboTeamInfo}}
+                        {{else}}
+                        {{> RoboTeam}}
                         {{/if}}
                     </div>
                 </div>

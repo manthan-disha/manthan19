@@ -1,0 +1,8 @@
+<div class="team-info" style="padding-top:40px;" id="robo">
+    <p>Team Name : {{user.RoboInfo.teamName}}</p>
+    <p>Events : {{user.RoboInfo.events}}</p>
+    <p>Team Members:</p>
+    {{#each user.RoboInfo.members}}
+    <p style="margin-left:30px;">{{this.name}}</p>
+    {{/each}}
+</div>

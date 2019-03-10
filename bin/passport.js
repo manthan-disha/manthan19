@@ -33,11 +33,15 @@ passport.use(
                 new User({
                     username: profile.displayName,
                     googleID: profile.id,
-                    profileImage: image.replace('sz=50','sz=200'),
+                    profileImage: image.replace('s50', 's500'),
                     basicInfo: false,
                     payment: false,
                     email: email,
                     kuruInfo: {
+                        registered : false,
+                        info : false
+                    },
+                    RoboInfo :{
                         registered : false,
                         info : false
                     }

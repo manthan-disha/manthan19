@@ -34,7 +34,8 @@ router.get('/profile', isLogged, isNotFirstTime, (req, res) => {
     res.render('profile', {
         user: req.user,
         title: `Manthan 2019 | ${req.user.username}'s Dashboard`,
-        number : [2,3,4,5]
+        kuruNumber: [2, 3, 4, 5],
+        roboNumber: [2, 3, 4, 5, 6, 7, 8]
     });
 });
 

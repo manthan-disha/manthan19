@@ -10,7 +10,8 @@ const express = require('express'),
     passport = require('passport'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
-    minifyHTML = require('express-minify-html')
+    minifyHTML = require('express-minify-html'),
+    helmet = require('helmet')
 // ,InstaMojo = require('instamojo-nodejs');
 
 mongoose.connect(process.env.MongoDBURI, () => console.log('db connected'))
@@ -19,6 +20,13 @@ app.use(cookieSession({
     maxAge: 2 * 24 * 60 * 60 * 1000,
     keys: [process.env.SECRET_KEY]
 }))
+
+app.use(helmet({
+    noCache: true,
+    frameguard: 'deny',
+    xssFilter: true
+}))
+
 
 app.use(passport.initialize())
 app.use(passport.session())
@@ -62,7 +70,7 @@ app.use(minifyHTML({
 
 app.use('/', require('./routes/basic_routes'));
 app.use('/user', require('./routes/login'));
-app.use('/buy', require('./routes/buy'));
+// app.use('/buy', require('./routes/buy'));
 app.use('/profile', require('./routes/profile'));
 
 

@@ -1,29 +1,39 @@
 const router = require('express').Router(),
     events = require('../bin/event-data'),
-    fs = require('fs');
-let sponserlist = fs.readdirSync(`./public/assets/img/sponsers/`)
-sponserlist = sponserlist.map((e, i) => (i % 4 === 0) ? sponserlist.slice(i, i + 4) : null).filter((e) => e)
+    fs = require('fs'),
+    _ = require('lodash')
+var sponserlist = fs.readdirSync(`./public/assets/img/sponsers/`)
 
+sponserlist = sponserlist.map(e => {
+    return e.split('.')[0]
+})
+sponserlist = (sponserlist.sort((a, b) => a - b)).map((e, i) => (i % 4 === 0) ? sponserlist.slice(i, i + 4) : null).filter((e) => e)
 
 
 router.get('/', (req, res) => {
     res.render('home', {
         sponsers: sponserlist,
         user: req.user,
-        title : `Manthan 2019 | Home`
+        title: `Manthan 2019 | Home`
     });
 });
+
+router.get('/ticket', (req, res) => {
+    res.render('partials/ticket-pdf', {
+        layout: false
+    });
+})
 
 router.get('/about-us', (req, res) => {
     res.render('about', {
         sponsers: sponserlist,
         user: req.user,
-        title : `Manthan 2019 | About Us`
+        title: `Manthan 2019 | About Us`
     });
 });
 
 router.get('/team', (req, res) => {
-    res.render('team',{
+    res.render('team', {
         user: req.user,
         title: `Manthan 2019 | Team`
     });
@@ -42,7 +52,7 @@ router.get('/developer', (req, res) => {
 });
 
 router.get('/contact-us', (req, res) => {
-    res.render('contact',{
+    res.render('contact', {
         user: req.user,
         title: `Manthan 2019 | Contact Us`
     });

@@ -1,0 +1,8 @@
+<div class="team-info" style="padding-top:40px;" id="kuru">
+    <p>Team Name : {{user.kuruInfo.teamName}}</p>
+    <p>Games : {{user.kuruInfo.game}}</p>
+    <p>Team Members:</p>
+    {{#each user.kuruInfo.members}}
+    <p style="margin-left:30px;">{{this.name}}</p>
+    {{/each}}
+</div>

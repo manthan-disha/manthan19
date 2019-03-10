@@ -24,6 +24,10 @@ router.post('/edit', (req, res) => {
 
 });
 
+router.post('/get-in-touch', (req, res) => {
+
+});
+
 router.post('/register/event', isLogged, (req, res) => {
     console.log(req.body)
     if (req.body) {
@@ -31,6 +35,13 @@ router.post('/register/event', isLogged, (req, res) => {
         if (eventid === 'Kurukshetra') {
             var data = {
                 'kuruInfo.registered': true,
+                $push: {
+                    events: req.body.eventid
+                }
+            }
+        } else if (eventid === 'Robosync') {
+            var data = {
+                'RoboInfo.registered': true,
                 $push: {
                     events: req.body.eventid
                 }
@@ -63,7 +74,7 @@ router.get('/details', isFirstTime, (req, res) => {
 
 router.post('/details', isLogged, (r, s) => {
     if (!r.body) return s.send('Invalid request')
-    
+
     let newData = {
         basicInfo: true,
         college: r.body.othername ? r.body.othername : r.body.college,
@@ -87,10 +98,12 @@ router.post('/kurukshetra/team', isLogged, (req, res) => {
     if (req.body) {
         let membersArray = [];
         req.body.memname.forEach((element, index) => {
-            membersArray.push({
-                "name": element,
-                "mobile": req.body.mob[index]
-            })
+            if (element) {
+                membersArray.push({
+                    "name": element,
+                    "mobile": req.body.mob[index]
+                })
+            }
         });
 
         let newData = {
@@ -100,6 +113,43 @@ router.post('/kurukshetra/team', isLogged, (req, res) => {
                 teamLeader: req.user.username,
                 teamName: req.body.teamname,
                 game: req.body.game,
+                members: membersArray
+            }
+        }
+        User.findOneAndUpdate({
+            username: req.user.username
+        }, newData, (err, doc) => {
+            if (err) return s.send('error occured')
+            console.log(doc)
+            // require("../teamMailer").sendTeamMail(newData, (err) => {
+            //     console.log("mail sent to shuhul");
+            // })
+            res.send('success')
+        })
+    } else {
+        res.send('error')
+    }
+});
+
+router.post('/robosync/team', isLogged, (req, res) => {
+    if (req.body) {
+        let membersArray = [];
+        req.body.memname.forEach((element, index) => {
+            if (element) {
+                membersArray.push({
+                    "name": element,
+                    "mobile": req.body.mob[index]
+                })
+            }
+        });
+
+        let newData = {
+            RoboInfo: {
+                registered: true,
+                info: true,
+                teamLeader: req.user.username,
+                teamName: req.body.teamname,
+                events: req.body.events,
                 members: membersArray
             }
         }

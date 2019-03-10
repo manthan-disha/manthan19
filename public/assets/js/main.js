@@ -258,6 +258,8 @@
                 if (text == "success") {
                     if (eventid === 'Kurukshetra')
                         return $('#reg-status').html('Registered<br>Please go to <a href="/user/profile">profile</a> and complete the team details')
+                    else if (eventid === 'Robosync')
+                        return $('#reg-status').html('Registered<br>Please go to <a href="/user/profile">profile</a> and complete the team details')
                     $('#reg-status').html('Registered')
                 } else {
                     $('#reg-status').html('Error occured, please try again')
@@ -276,9 +278,30 @@
             data: $(e.target).serialize(),
             success: function (text) {
                 if (text == "success") {
-                    $('#team-status').html('Successful !')
+                    $('#kuru-info #team-status').html('Successful !')
                     $('#kuru-info').remove()
-                    $('#kuruinfo').append('<p>All done here, editing options will be available soon.</p>')
+                    $('#kuruTeam').modal('hide')
+                    location.reload()
+                } else {
+                    $('#team-status').html('Error occured, try again.')
+                }
+            }
+        });
+    })
+
+    $('#robo-info').on('submit', (e) => {
+        e.preventDefault();
+        $('#roboTeam').modal('show')
+        $.ajax({
+            type: "POST",
+            url: "/profile/robosync/team",
+            data: $(e.target).serialize(),
+            success: function (text) {
+                if (text == "success") {
+                    $('#robo-info #team-status').html('Successful !')
+                    $('#robo-info').remove()
+                    $('#roboTeam').modal('hide')
+                    location.reload()
                 } else {
                     $('#team-status').html('Error occured, try again.')
                 }
