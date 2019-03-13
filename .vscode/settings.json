@@ -1,0 +1,8 @@
+{
+    "editor.minimap.enabled": false,
+    "editor.suggest.localityBonus": true,
+    "files.autoGuessEncoding": true,
+    "files.exclude": {
+        "node_modules/": true
+    }
+}

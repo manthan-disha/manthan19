@@ -1,6 +1,7 @@
 require('dotenv').config()
 const router = require('express').Router(),
     User = require('../bin/models/userModel'),
+    razorpay = require('razorpay'),
     isNotLogged = (req, res, n) => {
         let session = req.session.isPopulated
         if (!session) n()
@@ -166,6 +167,30 @@ router.post('/robosync/team', isLogged, (req, res) => {
     } else {
         res.send('error')
     }
+});
+
+router.get('/payment/capture/:id', (req, res) => {
+    var payment_id = req.params['id'],
+        details = req.query
+    console.log(details)
+    var rzp = new razorpay({
+        key_id: process.env.RZP_ID,
+        key_secret: process.env.RZP_SECRET
+    })
+
+    rzp.payments.capture(payment_id, details.amount, "INR").then(response => {
+        User.findOneAndUpdate({
+            username: req.user.username
+        }, {
+            paymentStatus: true,
+            payment : response
+        },(err,doc)=>{
+            if(err) return s.send('error occured please contact us at manthan.2019@disha-coer.in')
+            res.redirect('/user/profile')
+        })
+    }).catch(error => {
+        res.send(error);
+    })
 });
 
 

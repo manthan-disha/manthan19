@@ -2,7 +2,7 @@ const router = require('express').Router(),
     events = require('../bin/event-data'),
     fs = require('fs'),
     _ = require('lodash')
-var sponserlist = fs.readdirSync(`./public/assets/img/sponsers/`)
+var sponserlist = fs.readdirSync(`./public/assets/img/sponsors/`)
 
 sponserlist = sponserlist.map(e => {
     return e.split('.')[0]
@@ -18,10 +18,31 @@ router.get('/', (req, res) => {
     });
 });
 
+
+
 router.get('/ticket', (req, res) => {
-    res.render('partials/ticket-pdf', {
-        layout: false
-    });
+    var pdf = require('dynamic-html-pdf');
+    var html = fs.readFileSync('./views/partials/ticket-pdf.html', 'utf8');
+
+    var options = {
+        format: "A4",
+        orientation: "portrait",
+        border: "10mm"
+    };
+    var document = {
+        type: 'file',
+        template: html,
+        context: {
+            user: req.user
+        },
+        path: "./output.pdf"
+    };
+    pdf.create(document, options).then(out => {
+            console.log(out)
+        })
+        .catch(error => {
+            console.log(error)
+        })
 })
 
 router.get('/about-us', (req, res) => {

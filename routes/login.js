@@ -4,7 +4,7 @@ const router = require('express').Router(),
     isNotLogged = (req, res, n) => {
         let session = req.session.isPopulated
         if (!session) n()
-        else res.redirect('/user/profile') // to do change to profile
+        else res.redirect('/user/profile')
     },
     isLogged = (req, res, next) => {
         let session = req.session.isPopulated
@@ -31,11 +31,14 @@ router.get('/auth/success', passport.authenticate('google'), (req, res) => {
 })
 
 router.get('/profile', isLogged, isNotFirstTime, (req, res) => {
+    // TODO calculate amount
+    req.user.amount = ((req.user.college === "College of engineering roorkee") ? 100 : ((req.user.accomodation) ? 600 : 500))
     res.render('profile', {
         user: req.user,
         title: `Manthan 2019 | ${req.user.username}'s Dashboard`,
         kuruNumber: [2, 3, 4, 5],
-        roboNumber: [2, 3, 4, 5, 6, 7, 8]
+        roboNumber: [2, 3, 4, 5, 6, 7, 8],
+        RZP_KEY: process.env.RZP_ID
     });
 });
 

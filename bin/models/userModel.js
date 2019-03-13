@@ -16,9 +16,8 @@ let UserSchema = new Schema({
     email: String,
     accomodation: Boolean,
     events: [String],
-    payment: Boolean,
-    paymentId: String,
-    paymentReq: String,
+    paymentStatus: Boolean,
+    payment: Object,
     kuruInfo: {
         registered: Boolean,
         info: Boolean,
