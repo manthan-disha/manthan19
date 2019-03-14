@@ -9,7 +9,7 @@ module.exports.sendMail = (user, callback) => {
         user: process.env.UserEmail,
         pass: process.env.UserPassword
     }
-    
+    console.log(auth)
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: auth
@@ -27,9 +27,9 @@ module.exports.sendMail = (user, callback) => {
     let options = {
         viewEngine: {
             extname: 'handlebars',
-            layoutsDir: path.resolve(__dirname,'views')
+            layoutsDir: './views/mails'
         },
-        viewPath: path.resolve(__dirname, 'views')
+        viewPath: './views/mail'
     }
     transporter.use('compile', hbs(options))
     transporter.use('compile', inlineBase64())
