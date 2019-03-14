@@ -1,14 +1,15 @@
 require('dotenv').config()
 const nodemailer = require('nodemailer2'),
     hbs = require('nodemailer-express-handlebars'),
-    inlineBase64 = require('nodemailer-plugin-inline-base64')
+    inlineBase64 = require('nodemailer-plugin-inline-base64'),
+    path = require('path')
 
 module.exports.sendMail = (user, callback) => {
     let auth = {
         user: process.env.UserEmail,
         pass: process.env.UserPassword
     }
-    console.log(auth)
+    
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: auth
@@ -26,9 +27,9 @@ module.exports.sendMail = (user, callback) => {
     let options = {
         viewEngine: {
             extname: 'handlebars',
-            layoutsDir: './views/partials'
+            layoutsDir: path.resolve(__dirname,'views')
         },
-        viewPath: './views/partials'
+        viewPath: path.resolve(__dirname, 'views')
     }
     transporter.use('compile', hbs(options))
     transporter.use('compile', inlineBase64())
