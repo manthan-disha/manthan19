@@ -21,7 +21,9 @@
                         {{/if}}
                         <p style="color:rgb(223, 51, 59);">Payment Status :
                             {{#if user.paymentStatus}}Complete{{else}}Pending{{/if}}</p>
-                        {{!-- <button onclick="rzp1.open()">Pay Now</button> --}}
+                        {{#if user.paymentStatus}}
+                        <p>Payment ID : {{user.payment.payment_id}}</p>
+                        {{else}}<button onclick="pay()">Pay Now</button>{{/if}}
                     </div>
                 </div>
             </div>
@@ -123,29 +125,8 @@
         padding: 20px;
     }
 </style>
-
-<script src="//checkout.razorpay.com/v1/checkout.js"></script>
 <script>
-
-    var options = {
-        "key": "{{RZP_KEY}}",
-        "amount": "{{user.amount}}",
-        "name": "Merchant Name",
-        "description": "Purchase Description",
-        "image": "/assets/favicon.png",
-        "handler": function (response) {
-            window.location.href = `/profile/payment/capture/${response.razorpay_payment_id}?name={{user.username}}&amount={{user.amount}}&mid={{user.id}}`
-        },
-        "prefill": {
-            "name": "Gaurav Kumar",
-            "email": "test@test.com"
-        },
-        "notes": {
-            "address": "Hello World"
-        },
-        "theme": {
-            "color": "#F37254"
-        }
-    };
-    var rzp1 = new Razorpay(options);
+    function pay() {
+        window.location.href = '/profile/payment'
+    }
 </script>

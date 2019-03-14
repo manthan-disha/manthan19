@@ -1,7 +1,7 @@
 require('dotenv').config()
 const router = require('express').Router(),
+    InstaMojo = require('instamojo-nodejs'),
     User = require('../bin/models/userModel'),
-    razorpay = require('razorpay'),
     isNotLogged = (req, res, n) => {
         let session = req.session.isPopulated
         if (!session) n()
@@ -19,6 +19,10 @@ const router = require('express').Router(),
     CheckKuru = (r, s, n) => {
         if (r.user.kuruInfo.registered) n()
         else res.send('not allowed')
+    },
+    PaymentComplete = (r, s, n) => {
+        if (r.user.paymentStatus) s.redirect('/user/profile')
+        else n()
     }
 
 router.post('/edit', (req, res) => {
@@ -169,29 +173,58 @@ router.post('/robosync/team', isLogged, (req, res) => {
     }
 });
 
-router.get('/payment/capture/:id', (req, res) => {
-    var payment_id = req.params['id'],
-        details = req.query
-    console.log(details)
-    var rzp = new razorpay({
-        key_id: process.env.RZP_ID,
-        key_secret: process.env.RZP_SECRET
-    })
+router.get('/payment', isLogged, PaymentComplete, (req, res) => {
+    let amount = ((req.user.college === "College of engineering roorkee") ? 100 : ((req.user.accomodation) ? 600 : 500))
+    res.render('pricing', {
+        user: req.user,
+        amount: amount,
+        title: 'Manthan 2019 | pay now'
+    });
+});
 
-    rzp.payments.capture(payment_id, details.amount, "INR").then(response => {
+router.get('/pay', isLogged, PaymentComplete, (req, res) => {
+    let data = new InstaMojo.PaymentData()
+    data.purpose = "Manthan 19 Ticket"
+    data.currency = "INR"
+    data.buyer_name = req.user.username
+    data.email = req.user.email
+    data.phone = req.user.mobile
+    data.allow_repeated_payment = 'False'
+    let amount = ((req.user.college === "College of engineering roorkee") ? 100 : ((req.user.accomodation) ? 600 : 500))
+    data.amount = amount
+    data.redirect_url = `http://${req.get('host')}/profile/payment/success`
+
+    InstaMojo.createPayment(data, (err, resp) => {
+        if (err) return res.send(err)
+        let response = JSON.parse(resp)
+        console.log(response)
+        res.redirect(response.payment_request.longurl)
+    })
+});
+
+router.get('/payment/success', isLogged, PaymentComplete, (req, res) => {
+    let qpm = req.query;
+    if (qpm.payment_status != "Failed") {
+        let newData = {
+            paymentStatus: true,
+            payment: qpm
+        }
         User.findOneAndUpdate({
             username: req.user.username
-        }, {
-            paymentStatus: true,
-            payment : response
-        },(err,doc)=>{
-            if(err) return s.send('error occured please contact us at manthan.2019@disha-coer.in')
-            res.redirect('/user/profile')
+        }, newData, (err, doc) => {
+            if (err) return s.send('<h1>Error completing payment,<br>please contact me@mrinalraj.com</h1>')
+            // mailer
+             res.redirect('/user/profile');
         })
-    }).catch(error => {
-        res.send(error);
-    })
+    } else return res.send(
+        '<title>Bad request </title>' +
+        '<h1>403<br>invalid request</h1>'
+    )
 });
 
 
 module.exports = router
+
+// payment_id=MOJO9314005A17839805
+// payment_status=Credit
+// payment_request_id=721c4a9c89604ac99494c589a92c5173

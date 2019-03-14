@@ -38,7 +38,7 @@ router.get('/profile', isLogged, isNotFirstTime, (req, res) => {
         title: `Manthan 2019 | ${req.user.username}'s Dashboard`,
         kuruNumber: [2, 3, 4, 5],
         roboNumber: [2, 3, 4, 5, 6, 7, 8],
-        RZP_KEY: process.env.RZP_ID
+        kuruAllowed: (req.user.college === "College of engineering roorkee") ? true : (req.user.paymentStatus) ? false : true
     });
 });
 

@@ -13,11 +13,11 @@
     "body-parser": "^1.18.3",
     "cookie-session": "^2.0.0-beta.3",
     "dotenv": "^6.2.0",
-    "dynamic-html-pdf": "^0.0.4",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "express-minify-html": "^0.12.0",
     "helmet": "^3.15.1",
+    "instamojo-nodejs": "^0.0.5",
     "jquery": "^3.3.1",
     "jshint": "^2.10.2",
     "lodash": "^4.17.11",
@@ -25,7 +25,6 @@
     "mongoose-nanoid": "^1.0.4",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
-    "razorpay": "^2.0.4",
     "request": "^2.88.0",
     "shortid": "^2.2.14"
   }

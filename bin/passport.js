@@ -35,7 +35,7 @@ passport.use(
                     googleID: profile.id,
                     profileImage: image.replace('s50', 's500'),
                     basicInfo: false,
-                    payment: false,
+                    paymentStatus: false,
                     email: email,
                     kuruInfo: {
                         registered : false,

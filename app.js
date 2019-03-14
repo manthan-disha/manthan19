@@ -11,10 +11,14 @@ const express = require('express'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
     minifyHTML = require('express-minify-html'),
-    helmet = require('helmet')
-// ,InstaMojo = require('instamojo-nodejs');
+    helmet = require('helmet'),
+    InstaMojo = require('instamojo-nodejs');
 
 mongoose.connect(process.env.MongoDBURI, () => console.log('db connected'))
+
+InstaMojo.setKeys(process.env.InstaMojoAPIKey, process.env.InstaMojoAuthKey)
+InstaMojo.isSandboxMode(true)
+
 
 app.use(cookieSession({
     maxAge: 2 * 24 * 60 * 60 * 1000,
