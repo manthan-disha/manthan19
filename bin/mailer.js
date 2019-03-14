@@ -27,7 +27,8 @@ module.exports.sendMail = (user, callback) => {
     let options = {
         viewEngine: {
             extname: 'handlebars',
-            layoutsDir: './views/mails'
+            partialsDir : '/views/mail',
+            layoutsDir: './views/mail'
         },
         viewPath: './views/mail'
     }
