@@ -17,7 +17,8 @@ const express = require('express'),
 mongoose.connect(process.env.MongoDBURI, () => console.log('db connected'))
 
 InstaMojo.setKeys(process.env.InstaMojoAPIKey, process.env.InstaMojoAuthKey)
-InstaMojo.isSandboxMode(true)
+let sandBoxMode = (parseInt(process.env.SandBoxMode) == 0) ? false : true;
+InstaMojo.isSandboxMode(sandBoxMode)
 
 
 app.use(cookieSession({

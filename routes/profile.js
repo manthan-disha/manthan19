@@ -214,7 +214,10 @@ router.get('/payment/success', isLogged, PaymentComplete, (req, res) => {
         }, newData, (err, doc) => {
             if (err) return s.send('<h1>Error completing payment,<br>please contact me@mrinalraj.com</h1>')
             // mailer
-             res.redirect('/user/profile');
+            require('../bin/mailer').sendMail(req.user, err => {
+                if (err) return console.log(err)
+                res.redirect('/user/profile');
+            })
         })
     } else return res.send(
         '<title>Bad request </title>' +
