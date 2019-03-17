@@ -174,7 +174,7 @@ router.post('/robosync/team', isLogged, (req, res) => {
 });
 
 router.get('/payment', isLogged, PaymentComplete, (req, res) => {
-    let amount = ((req.user.college === "College of engineering roorkee") ? 100 : ((req.user.accomodation) ? 600 : 500))
+    let amount = process.env.PAYMENT_AMOUNT || ((req.user.college === "College of engineering roorkee") ? 100 : ((req.user.accomodation) ? 600 : 500))
     res.render('pricing', {
         user: req.user,
         amount: amount,
@@ -190,7 +190,7 @@ router.get('/pay', isLogged, PaymentComplete, (req, res) => {
     data.email = req.user.email
     data.phone = req.user.mobile
     data.allow_repeated_payment = 'False'
-    let amount = ((req.user.college === "College of engineering roorkee") ? 100 : ((req.user.accomodation) ? 600 : 500))
+    let amount = process.env.PAYMENT_AMOUNT || ((req.user.college === "College of engineering roorkee") ? 100 : ((req.user.accomodation) ? 600 : 500))
     data.amount = amount
     data.redirect_url = `http://${req.get('host')}/profile/payment/success`
 
