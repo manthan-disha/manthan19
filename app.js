@@ -74,8 +74,8 @@ app.use(minifyHTML({
     }
 }));
 
-app.get('/.well-known/acme-challenge/x4UX5Lu1XHI3OwTQounq6xWJESjEm4VWkAdxjjuXnAM', (req, res) => {
-    res.send('x4UX5Lu1XHI3OwTQounq6xWJESjEm4VWkAdxjjuXnAM.VKAPtwnoeCWTLhjwvtJ4LpEQ--Gm-OlZKk_qe1nQkCk');
+app.get(`/.well-known/acme-challenge/${process.env.ACME_TEXT}`, (req, res) => {
+    res.send(process.env.ACME_RESPONSE);
 });
 app.use('/', require('./routes/basic_routes'));
 app.use('/user', require('./routes/login'));
