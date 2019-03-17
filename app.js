@@ -74,7 +74,9 @@ app.use(minifyHTML({
     }
 }));
 
-
+app.get('/.well-known/acme-challenge/x4UX5Lu1XHI3OwTQounq6xWJESjEm4VWkAdxjjuXnAM', (req, res) => {
+    res.send('x4UX5Lu1XHI3OwTQounq6xWJESjEm4VWkAdxjjuXnAM.VKAPtwnoeCWTLhjwvtJ4LpEQ--Gm-OlZKk_qe1nQkCk');
+});
 app.use('/', require('./routes/basic_routes'));
 app.use('/user', require('./routes/login'));
 // app.use('/buy', require('./routes/buy'));
