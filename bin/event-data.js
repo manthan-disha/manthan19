@@ -18,7 +18,7 @@ module.exports = events = [{
             phone: ["8979243090"],
             email: ["chiragkansalofficial089@gmail.com", "jayati.innovationahead@gmail.com"]
         },
-        problemStatement: "#",
+        problemStatement: "/files/CODEX'19.pdf",
         image: "codex"
     }, {
         name: "Gigabit",
@@ -72,7 +72,7 @@ module.exports = events = [{
             phone: ["8979266002", "8958010001"],
             email: ["shivanshdxt@gmail.com"]
         },
-        problemStatement: false,
+        problemStatement: "files/Engadget-Manthan19.pdf",
         image: "engadget"
     }, {
         name: "Strategem",
@@ -202,7 +202,7 @@ module.exports = events = [{
             phone: ["8449308998 "],
             email: ["sharadpandey7309@gmail.com"]
         },
-        problemStatement: false,
+        problemStatement: "files/Robosync-Manthan19.pdf",
         image: "robo"
     }, {
         name: "Kurukshetra",
