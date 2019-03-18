@@ -23,6 +23,10 @@ const router = require('express').Router(),
     PaymentComplete = (r, s, n) => {
         if (r.user.paymentStatus) s.redirect('/user/profile')
         else n()
+    },
+    isNotFirstTime = (req, res, next) => {
+        if (req.user.basicInfo) next()
+        else res.redirect('/profile/details');
     }
 
 router.post('/edit', (req, res) => {
@@ -33,7 +37,7 @@ router.post('/get-in-touch', (req, res) => {
 
 });
 
-router.post('/register/event', isLogged, (req, res) => {
+router.post('/register/event', isLogged,isNotFirstTime, (req, res) => {
     console.log(req.body)
     if (req.body) {
         let eventid = req.body.eventid
@@ -99,7 +103,7 @@ router.post('/details', isLogged, (r, s) => {
     })
 });
 
-router.post('/kurukshetra/team', isLogged, (req, res) => {
+router.post('/kurukshetra/team',  isLogged,isNotFirstTime, (req, res) => {
     if (req.body) {
         let membersArray = [];
         req.body.memname.forEach((element, index) => {
@@ -136,7 +140,7 @@ router.post('/kurukshetra/team', isLogged, (req, res) => {
     }
 });
 
-router.post('/robosync/team', isLogged, (req, res) => {
+router.post('/robosync/team', isLogged,isNotFirstTime, (req, res) => {
     if (req.body) {
         let membersArray = [];
         req.body.memname.forEach((element, index) => {
@@ -173,7 +177,7 @@ router.post('/robosync/team', isLogged, (req, res) => {
     }
 });
 
-router.get('/payment', isLogged, PaymentComplete, (req, res) => {
+router.get('/payment', isLogged, PaymentComplete,isNotFirstTime, (req, res) => {
     let amount = process.env.PAYMENT_AMOUNT || ((req.user.college === "College of engineering roorkee") ? 100 : ((req.user.accomodation) ? 600 : 500))
     res.render('pricing', {
         user: req.user,
@@ -182,7 +186,7 @@ router.get('/payment', isLogged, PaymentComplete, (req, res) => {
     });
 });
 
-router.get('/pay', isLogged, PaymentComplete, (req, res) => {
+router.get('/pay', isLogged, PaymentComplete,isNotFirstTime, (req, res) => {
     let data = new InstaMojo.PaymentData()
     data.purpose = "Manthan 19 Ticket"
     data.currency = "INR"

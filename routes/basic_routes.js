@@ -1,7 +1,11 @@
 const router = require('express').Router(),
     events = require('../bin/event-data'),
     fs = require('fs'),
-    _ = require('lodash')
+    _ = require('lodash'),
+    isNotFirstTime = (req, res, next) => {
+        if (req.user.basicInfo) next()
+        else res.redirect('/profile/details');
+    }
 var sponserlist = fs.readdirSync(`./public/assets/img/sponsors/`)
 
 sponserlist = sponserlist.map(e => {
@@ -38,14 +42,14 @@ router.get('/ticket', (req, res) => {
         path: "./output.pdf"
     };
     pdf.create(document, options).then(out => {
-            console.log(out)
-        })
+        console.log(out)
+    })
         .catch(error => {
             console.log(error)
         })
 })
 
-router.get('/about-us', (req, res) => {
+router.get('/about-us',isNotFirstTime, (req, res) => {
     res.render('about', {
         sponsers: sponserlist,
         user: req.user,
@@ -53,14 +57,14 @@ router.get('/about-us', (req, res) => {
     });
 });
 
-router.get('/team', (req, res) => {
+router.get('/team',isNotFirstTime, (req, res) => {
     res.render('team', {
         user: req.user,
         title: `Manthan 2019 | Team`
     });
 });
 
-router.get('/events', (req, res) => {
+router.get('/events',isNotFirstTime, (req, res) => {
     res.render('events', {
         events: events,
         user: req.user,
