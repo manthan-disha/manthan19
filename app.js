@@ -35,9 +35,7 @@ app.use(helmet({
 
 app.use(passport.initialize())
 app.use(passport.session())
-app.use(express.static(__dirname, {
-    dotfiles: 'allow'
-}));
+
 app.use(express.static(path.resolve(__dirname, 'public')))
 
 app.use(bodyParser.json());
