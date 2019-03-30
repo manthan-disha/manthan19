@@ -123,10 +123,16 @@ module.exports = events = [{
         name: "Seriogeek",
         description: `TV Series Quiz Event`,
         content: "This event include one round",
-        catagories: false,
+        catagories: [
+            {
+                name : "Marvel Comic Universe",
+                des : [`Are you a Marvel fanatic? Now is time to show-off your knowledge - presenting a bonus section this year in serio-geek especially for "MARVEL FANS"` ,`<br><br> Attempt 75% of MCU section correctly to grab an additional bonus.`]
+            }
+        ],
         rounds: [{
             name: "ROUND 1 :",
-            des: ["Participants have to answer 50 MCQ’s in 45 Minutes.", "MCQ’s based on Seven different TV Series.", "Participants have to attempt only four series. "]
+            des: ["Participants have to attempt 4 TV series of 15 ques each in 45min", 
+            "MCQ’s based on Seven different TV Series.", "Participants have to attempt only four series. "]
         }],
         coordinator: {
             name: "Shashank Tyagi & Priyanka Singh",
